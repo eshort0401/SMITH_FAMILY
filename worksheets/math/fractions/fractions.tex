@@ -1,0 +1,443 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{eqlist}
+\usepackage{uri}
+\urisetup{doipre={https://doi.org/}}
+\usepackage{natbib}
+\usepackage{siunitx}
+\usepackage{pythonhighlight}
+\usepackage{comment}
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{tasks}
+\usepackage{xcolor}
+\usepackage{oubraces}
+\usepackage[inline]{enumitem}
+\usepackage{titling}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage[font={small}, labelfont=bf]{caption}
+\captionsetup{width=.7\textwidth, font=small}
+\usepackage{hyperref}
+\usepackage{forest}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+    % hidelinks=true,
+    linkcolor=black,
+    citecolor=black,
+}
+\usetikzlibrary{positioning} 
+% set the float page fraction
+\renewcommand{\floatpagefraction}{.8}
+
+% Initialize line spacing to 1.5
+\linespread{1.5}
+
+% Define \sgn function
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\Ei}{Ei}
+\DeclareMathOperator{\E1}{E_1}
+\DeclareMathOperator{\atan2}{atan2}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\gcf}{gcf}
+
+% Simple exercises environment using basic enumerate
+\newcounter{exercisenum}
+\newenvironment{exercises}{%
+  \begin{tcolorbox}[colback=white,colframe=black,arc=0pt,breakable]
+%   \noindent\textbf{Exercises}\par
+  \begin{enumerate}[label=\arabic*),leftmargin=1cm,resume=exercises]
+  \setcounter{enumi}{\value{exercisenum}}
+}{%
+  \setcounter{exercisenum}{\value{enumi}}
+  \end{enumerate}
+  \end{tcolorbox}
+}
+
+% Setup footer for first page only
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  \fancyfoot[L]{\small FRACTIONS}
+  \fancyfoot[R]{\small \quad Ewan Short \quad \today}
+  \fancyfoot[C]{\small\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\begin{document}
+
+\thispagestyle{firstpage}
+
+\section{Fractions}
+\begin{itemize}
+\item
+\underbar{Fractions} like $\frac{1}{2}$ are often used to represent portions of something, like pizza. Below are some fractions shown as shaded slices of a pizza.
+\begin{center}
+\begin{tikzpicture}
+
+    % First pizza - divided in halves (1/2)
+    \fill[gray!30] (0,0) -- (0,0.8) arc (90:270:0.8cm) -- cycle;
+    \draw[thick] (0,0) circle (0.8cm);
+    \draw[thick] (0,0.8) -- (0,-0.8);
+    \node[anchor=base] at (0,-1.7) {$\displaystyle\frac{1}{2}$};
+    
+    % Second pizza - divided in fifths (2/5)
+    \fill[gray!30] (2.5,0) -- (2.5,0.8) arc (90:162:0.8cm) -- cycle;
+    \fill[gray!30] (2.5,0) -- (2.5,0.8) arc (90:18:0.8cm) -- cycle;
+    \draw[thick] (2.5,0) circle (0.8cm);
+    \foreach \angle in {90,162,234,306,18}
+        \draw[thick] (2.5,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] at (2.5,-1.7) {$\displaystyle\frac{2}{5}$};
+    
+    % Third pizza - divided in sixths (1/6)
+    \fill[gray!30] (5,0) -- (5,0.8) arc (90:30:0.8cm) -- cycle;
+    \draw[thick] (5,0) circle (0.8cm);
+    \foreach \angle in {90,150,210,270,330,30}
+        \draw[thick] (5,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] at (5,-1.7) {$\displaystyle\frac{1}{6}$};
+    
+    % Fourth pizza - divided in eighths (4/8)
+    \fill[gray!30] (7.5,0) -- (7.5,0.8) arc (90:315:0.8cm) -- cycle;
+    \draw[thick] (7.5,0) circle (0.8cm);
+    \foreach \angle in {90,135,180,225,270,315,0,45}
+        \draw[thick] (7.5,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] at (7.5,-1.7) {$\displaystyle\frac{5}{8}$};
+\end{tikzpicture}
+\end{center}
+\item
+In a fraction, the number above the line is the \underbar{numerator}, which is the number of portions we have, or are interested in. The number below the line is the \underbar{denominator}, which is the total portions making up the whole.
+$$
+\frac{\text{portions}}{\text{total portions}} = \frac{\text{numerator}}{\text{denominator}} = \frac{\text{shaded slices}}{\text{total slices}}.
+$$ 
+\end{itemize}
+
+\begin{exercises}
+\item Shade the pizza slices and add the missing numbers as needed.
+\begin{center}
+\begin{tikzpicture}
+    % First pizza - divided in halves (1/2)
+    \fill[gray!30] (0,0) -- (0,0.8) arc (90:270:0.8cm) -- cycle;
+    \draw[thick] (0,0) circle (0.8cm);
+    \draw[thick] (0,0.8) -- (0,-0.8);
+    \node[anchor=base] at (0,-1.7) {$\displaystyle\frac{1}{\boxed{\phantom{2}}}$};
+    
+    % Second pizza - divided in thirds (2/3)
+    \draw[thick] (2.5,0) circle (0.8cm);
+    \foreach \angle in {90,210,330}
+        \draw[thick] (2.5,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] at (2.5,-1.7) {$\displaystyle\frac{2}{3}$};
+    
+    % Third pizza - divided in sevenths (5/7)
+    \fill[gray!30] (5,0) -- (5,0.8) arc (90:347.14:0.8cm) -- cycle;
+    \draw[thick] (5,0) circle (0.8cm);
+    \foreach \angle in {90,141.43,192.86,244.29,295.71,347.14,38.57}
+        \draw[thick] (5,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] at (5,-1.7) {$\displaystyle\frac{\boxed{\phantom{5}}}{\boxed{\phantom{7}}}$};
+    
+    % Fourth pizza - divided in fifths (2/5)
+    \draw[thick] (7.5,0) circle (0.8cm);
+    \foreach \angle in {90,162,234,306,18}
+        \draw[thick] (7.5,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] at (7.5,-1.7) {$\displaystyle\frac{2}{\boxed{\phantom{5}}}$};
+\end{tikzpicture}
+\end{center}
+\end{exercises}
+
+\begin{itemize}
+\item
+Given one fractions, an \underbar{equivalent fraction} is any other fraction equal to it. Below is $\frac{1}{2}$ and some equivalent fractions.
+\begin{center}
+\begin{tikzpicture}
+    % First pizza - divided in halves (1/2)
+    \fill[gray!30] (0,0) -- (0,0.8) arc (90:270:0.8cm) -- cycle;
+    \draw[thick] (0,0) circle (0.8cm);
+    \draw[thick] (0,0.8) -- (0,-0.8);
+    \node[anchor=base] (a) at (0,-1.7) {$\displaystyle\frac{1}{2}$};
+    \node[anchor=north] (a2) at (0,-2.2) {$\displaystyle\frac{1}{2}$};
+    
+    % Second pizza - divided in quarters (2/4)
+    \fill[gray!30] (2.5,0) -- (2.5,0.8) arc (90:270:0.8cm) -- cycle;
+    \draw[thick] (2.5,0) circle (0.8cm);
+    \draw[thick] (2.5,0.8) -- (2.5,-0.8);
+    \draw[thick] (1.7,0) -- (3.3,0);
+    \node[anchor=base] (b) at (2.5,-1.7) {$\displaystyle\frac{2}{4}$};
+    \node[anchor=north] (b2) at (2.5,-2.2) {$\displaystyle\frac{1\times 2}{2\times 2}$};
+    
+    % Third pizza - divided in sixths (3/6)
+    \fill[gray!30] (5,0) -- (5,0.8) arc (90:270:0.8cm) -- cycle;
+    \draw[thick] (5,0) circle (0.8cm);
+    \foreach \angle in {90,150,210,270,330,30}
+        \draw[thick] (5,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] (c) at (5,-1.7) {$\displaystyle\frac{3}{6}$};
+    \node[anchor=north] (c2) at (5,-2.2) {$\displaystyle\frac{1\times 3}{2\times 3}$};
+    
+    % Fourth pizza - divided in eighths (4/8)
+    \fill[gray!30] (7.5,0) -- (7.5,0.8) arc (90:270:0.8cm) -- cycle;
+    \draw[thick] (7.5,0) circle (0.8cm);
+    \foreach \angle in {90,135,180,225,270,315,0,45}
+        \draw[thick] (7.5,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] (d) at (7.5,-1.7) {$\displaystyle\frac{4}{8}$};
+    \node[anchor=north] (d2) at (7.5,-2.2) {$\displaystyle\frac{1\times 4}{2\times 4}$};
+    
+    % Fifth pizza - divided in tenths (5/10)
+    \fill[gray!30] (10,0) -- (10,0.8) arc (90:270:0.8cm) -- cycle;
+    \draw[thick] (10,0) circle (0.8cm);
+    \foreach \angle in {90,126,162,198,234,270,306,342,18,54}
+        \draw[thick] (10,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] (e) at (10,-1.7) {$\displaystyle\frac{5}{10}$};
+    \node[anchor=north] (e2) at (10,-2.2) {$\displaystyle\frac{1\times 5}{2\times 5}$};
+
+    % Equals signs between top row
+    \path (a) -- node[midway] {$=$} (b);
+    \path (b) -- node[midway] {$=$} (c);
+    \path (c) -- node[midway] {$=$} (d);
+    \path (d) -- node[midway] {$=$} (e);
+    
+    % Equals signs between bottom row
+    \path (a2) -- node[midway] {$=$} (b2);
+    \path (b2) -- node[midway] {$=$} (c2);
+    \path (c2) -- node[midway] {$=$} (d2);
+    \path (d2) -- node[midway] {$=$} (e2);
+\end{tikzpicture}
+\end{center}
+\item 
+In the previous diagram, notice how multiplying the numerator and denominator by the same whole number creates equivalent fractions, and corresponds visually to subdividing the pizza slices.
+\end{itemize}
+
+\begin{exercises}
+\item
+Draw extra lines to divide the slices, and add missing numbers as needed.
+\begin{center}
+\begin{tikzpicture}
+    % First pizza - divided in thirds (2/3)
+    \fill[gray!30] (0,0) -- (0,0) -- ++(90:0.8cm) arc (90:330:0.8cm) -- cycle;
+    \draw[thick] (0,0) circle (0.8cm);
+    \foreach \angle in {90,210,330}
+        \draw[thick] (0,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] (a) at (0,-1.7) {$\displaystyle\frac{2}{3}$};
+    \node[anchor=north] (a2) at (0,-2.2) {$\displaystyle\frac{2}{3}$};
+    
+    % Second pizza - divided in sixths (4/6)
+    \fill[gray!30] (2.5,0) -- (2.5,0) -- ++(90:0.8cm) arc (90:330:0.8cm) -- cycle;
+    \draw[thick] (2.5,0) circle (0.8cm);
+    \foreach \angle in {90,210,330}
+        \draw[thick] (2.5,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] (b) at (2.5,-1.7) {$\displaystyle\frac{4}{6}$};
+    \node[anchor=north] (b2) at (2.5,-2.2) {$\displaystyle\frac{2\times 2}{3\times 2}$};
+    
+    % Third pizza - divided in ninths (6/9)
+    \fill[gray!30] (5,0) -- (5,0) -- ++(90:0.8cm) arc (90:330:0.8cm) -- cycle;
+    \draw[thick] (5,0) circle (0.8cm);
+    \foreach \angle in {90,130,170,210,250,290,330,10,50}
+        \draw[thick] (5,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] (c) at (5,-1.7) {$\displaystyle\frac{\boxed{\phantom{6}}}{\boxed{\phantom{9}}}$};
+    \node[anchor=north] (c2) at (5,-2.2) {$\displaystyle\frac{2\times \boxed{\phantom{3}}}{3\times \boxed{\phantom{3}}}$};
+    
+    % Fourth pizza - divided in twelfths (8/12)
+    \fill[gray!30] (7.5,0) -- (7.5,0) -- ++(90:0.8cm) arc (90:330:0.8cm) -- cycle;
+    \draw[thick] (7.5,0) circle (0.8cm);
+    \foreach \angle in {90,210,330}
+        \draw[thick] (7.5,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] (d) at (7.5,-1.7) {$\displaystyle\frac{\boxed{\phantom{8}}}{\boxed{\phantom{12}}}$};
+    \node[anchor=north] (d2) at (7.5,-2.2) {$\displaystyle\frac{2\times \boxed{\phantom{4}}}{3\times 4}$};
+    
+    % Fifth pizza - divided in fifteenths (10/15)
+    \fill[gray!30] (10,0) -- (10,0) -- ++(90:0.8cm) arc (90:330:0.8cm) -- cycle;
+    \draw[thick] (10,0) circle (0.8cm);
+    \foreach \angle in {90,114,138,162,186,210,234,258,282,306,330,354,18,42,66}
+        \draw[thick] (10,0) -- ++(\angle:0.8cm);
+    \node[anchor=base] (e) at (10,-1.7) {$\displaystyle\frac{\boxed{\phantom{10}}}{\boxed{\phantom{15}}}$};
+    \node[anchor=north] (e2) at (10,-2.2) {$\displaystyle\frac{2\times \boxed{\phantom{5}}}{3\times \boxed{\phantom{5}}}$};
+
+    % Equals signs between top row
+    \path (a) -- node[midway] {$=$} (b);
+    \path (b) -- node[midway] {$=$} (c);
+    \path (c) -- node[midway] {$=$} (d);
+    \path (d) -- node[midway] {$=$} (e);
+    
+    % Equals signs between bottom row
+    \path (a2) -- node[midway] {$=$} (b2);
+    \path (b2) -- node[midway] {$=$} (c2);
+    \path (c2) -- node[midway] {$=$} (d2);
+    \path (d2) -- node[midway] {$=$} (e2);
+\end{tikzpicture}
+\end{center}
+\item
+Find three fractions equivalent to $\frac{4}{7}$, for example $\frac{12}{21}$.
+\end{exercises}
+
+\section{Adding and Subtracting Fractions}
+\begin{itemize}
+\item
+Fractions with the same denominator can be added or subtracted by adding or subtracting the numerators. For example,
+\begin{center}
+\begin{tikzpicture}
+    % First pizza - 1/5
+    \fill[gray!30] (0,0) -- (0,0.6) arc (90:162:0.6cm) -- cycle;
+    \draw[thick] (0,0) circle (0.6cm);
+    \foreach \angle in {90,162,234,306,18}
+        \draw[thick] (0,0) -- ++(\angle:0.6cm);
+    \node[anchor=base] (a) at (0,-1.5) {$\displaystyle\frac{1}{5}$};
+    
+    % Second pizza - 2/5
+    \fill[gray!30] (1.875,0) -- ++(162:0.6cm) arc (162:306:0.6cm) -- cycle;
+    \draw[thick] (1.875,0) circle (0.6cm);
+    \foreach \angle in {90,162,234,306,18}
+        \draw[thick] (1.875,0) -- ++(\angle:0.6cm);
+    \node[anchor=base] (b) at (1.875,-1.5) {$\displaystyle\frac{2}{5}$};
+    
+    % Third pizza - 3/5
+    \fill[gray!30] (3.75,0) -- (3.75,0.6) arc (90:306:0.6cm) -- cycle;
+    \draw[thick] (3.75,0) circle (0.6cm);
+    \foreach \angle in {90,162,234,306,18}
+        \draw[thick] (3.75,0) -- ++(\angle:0.6cm);
+    \node[anchor=base] (c) at (3.75,-1.5) {$\displaystyle\frac{3}{5}$};
+    
+    % Plus and equals signs between fractions
+    \path (a) -- node[midway] {$\displaystyle+$} (b);
+    \path (b) -- node[midway] {$\displaystyle=$} (c);
+\end{tikzpicture}
+\hspace{1.75cm}
+\begin{tikzpicture}
+    % First pizza - 5/7
+    \fill[gray!30] (0,0) -- (0,0.6) arc (90:347.14:0.6cm) -- cycle;
+    \draw[thick] (0,0) circle (0.6cm);
+    \foreach \angle in {90,141.43,192.86,244.29,295.71,347.14,38.57}
+        \draw[thick] (0,0) -- ++(\angle:0.6cm);
+    \node[anchor=base] (a) at (0,-1.5) {$\displaystyle\frac{5}{7}$};
+    
+    % Second pizza - 2/7
+    \fill[gray!30] (1.875,0) -- ++(244.29:0.6cm) arc (244.29:347.14:0.6cm) -- cycle;
+    \draw[thick] (1.875,0) circle (0.6cm);
+    \foreach \angle in {90,141.43,192.86,244.29,295.71,347.14,38.57}
+        \draw[thick] (1.875,0) -- ++(\angle:0.6cm);
+    \node[anchor=base] (b) at (1.875,-1.5) {$\displaystyle\frac{2}{7}$};
+    
+    % Third pizza - 3/7
+    \fill[gray!30] (3.75,0) -- (3.75,0.6) arc (90:244.29:0.6cm) -- cycle;
+    \draw[thick] (3.75,0) circle (0.6cm);
+    \foreach \angle in {90,141.43,192.86,244.29,295.71,347.14,38.57}
+        \draw[thick] (3.75,0) -- ++(\angle:0.6cm);
+    \node[anchor=base] (c) at (3.75,-1.5) {$\displaystyle\frac{3}{7}$};
+    
+    % Minus and equals signs between fractions
+    \path (a) -- node[midway] {$\displaystyle-$} (b);
+    \path (b) -- node[midway] {$\displaystyle=$} (c);
+\end{tikzpicture}
+\end{center}
+\item
+To add or subtract fractions with different denominators, we find equivalent fractions where the denominator of each is a \underbar{common multiple} of the originals. For example, to calculate 
+$$\frac{1}{2}+\frac{1}{3}$$ 
+we need a common multiple of $2$ and $3$. An easy way to get a common multiple of two numbers is to multiply them, so let's use equivalent fractions with denominators of $2\times3 = 6$.
+
+% \begin{minipage}{0.48\textwidth}
+% \begin{align*}
+% &\phantom{=}\,\,\,\frac{1}{\fcolorbox{red}{white}{2}} & \vcenter{\hbox{\begin{tikzpicture}[scale=0.5,baseline=0]
+% \fill[gray!30] (0,0) -- (0,0.8) arc (90:270:0.8cm) -- cycle;
+% \draw[thick] (0,0) circle (0.8cm);
+% \draw[thick] (0,0.8) -- (0,-0.8);
+% \end{tikzpicture}}}\\ 
+% &= \frac{1\times 2}{2\times 2} = \frac{2}{4} & \vcenter{\hbox{\begin{tikzpicture}[scale=0.5,baseline=0]
+% \fill[gray!30] (0,0) -- (0,0.8) arc (90:270:0.8cm) -- cycle;
+% \draw[thick] (0,0) circle (0.8cm);
+% \draw[thick] (0,0.8) -- (0,-0.8);
+% \draw[thick] (-0.8,0) -- (0.8,0);
+% \end{tikzpicture}}}\\ 
+% &= \frac{1\times \fcolorbox{blue}{white}{3}}{\fcolorbox{red}{white}{2}\times \fcolorbox{blue}{white}{3}}=\frac{3}{\boxed{6}} & \vcenter{\hbox{\begin{tikzpicture}[scale=0.5,baseline=0]
+% \fill[gray!30] (0,0) -- (0,0.8) arc (90:270:0.8cm) -- cycle;
+% \draw[thick] (0,0) circle (0.8cm);
+% \foreach \angle in {90,150,210,270,330,30}
+%     \draw[thick] (0,0) -- ++(\angle:0.8cm);
+% \end{tikzpicture}}}\\
+% &= \frac{1\times 4}{2\times 4}=\frac{4}{8} & \vcenter{\hbox{\begin{tikzpicture}[scale=0.5,baseline=0]
+% \fill[gray!30] (0,0) -- (0,0.8) arc (90:270:0.8cm) -- cycle;
+% \draw[thick] (0,0) circle (0.8cm);
+% \foreach \angle in {90,135,180,225,270,315,0,45}
+%     \draw[thick] (0,0) -- ++(\angle:0.8cm);
+% \end{tikzpicture}}}\\
+% &=\cdots
+% \end{align*}
+% \end{minipage}
+% \hfill
+% \begin{minipage}{0.48\textwidth}
+% \begin{align*}
+% &\phantom{=}\,\,\,\frac{1}{\fcolorbox{blue}{white}{3}} & \vcenter{\hbox{\begin{tikzpicture}[scale=0.5,baseline=0]
+% \fill[gray!30] (0,0) -- ++(270:0.8cm) arc (270:390:0.8cm) -- cycle;
+% \draw[thick] (0,0) circle (0.8cm);
+% \foreach \angle in {270,30,150}
+%     \draw[thick] (0,0) -- ++(\angle:0.8cm);
+% \end{tikzpicture}}}\\
+% &= \frac{1\times \fcolorbox{red}{white}{2}}{\fcolorbox{blue}{white}{3} \times \fcolorbox{red}{white}{2}} = \frac{2}{\boxed{6}} & \vcenter{\hbox{\begin{tikzpicture}[scale=0.5,baseline=0]
+% \fill[gray!30] (0,0) -- ++(270:0.8cm) arc (270:390:0.8cm) -- cycle;
+% \draw[thick] (0,0) circle (0.8cm);
+% \foreach \angle in {90,150,210,270,330,30}
+%     \draw[thick] (0,0) -- ++(\angle:0.8cm);
+% \end{tikzpicture}}}\\ 
+% &= \frac{1\times 3}{3\times 3}=\frac{3}{9} & \vcenter{\hbox{\begin{tikzpicture}[scale=0.5,baseline=0]
+% \fill[gray!30] (0,0) -- ++(270:0.8cm) arc (270:390:0.8cm) -- cycle;
+% \draw[thick] (0,0) circle (0.8cm);
+% \foreach \angle in {270,310,350,30,70,110,150,190,230}
+%     \draw[thick] (0,0) -- ++(\angle:0.8cm);
+% \end{tikzpicture}}}\\
+% &= \frac{1\times 4}{3\times 4}=\frac{4}{12} & \vcenter{\hbox{\begin{tikzpicture}[scale=0.5,baseline=0]
+% \fill[gray!30] (0,0) -- ++(270:0.8cm) arc (270:390:0.8cm) -- cycle;
+% \draw[thick] (0,0) circle (0.8cm);
+% \foreach \angle in {90,120,150,180,210,240,270,300,330,0,30,60}
+%     \draw[thick] (0,0) -- ++(\angle:0.8cm);
+% \end{tikzpicture}}}\\
+% &=\cdots
+% \end{align*}
+% \end{minipage}
+
+\begin{center}
+\begin{tabular}{ccccccccc}
+\begin{tikzpicture}[scale=0.75,baseline=-0.5ex]
+\fill[gray!30] (0,0) -- (0,0.8) arc (90:270:0.8cm) -- cycle;
+\draw[thick] (0,0) circle (0.8cm);
+\draw[thick] (0,0.8) -- (0,-0.8);
+\end{tikzpicture} & &
+\begin{tikzpicture}[scale=0.75,baseline=-0.5ex]
+\fill[gray!30] (0,0) -- ++(270:0.8cm) arc (270:390:0.8cm) -- cycle;
+\draw[thick] (0,0) circle (0.8cm);
+\foreach \angle in {270,30,150}
+    \draw[thick] (0,0) -- ++(\angle:0.8cm);
+\end{tikzpicture} & &
+\begin{tikzpicture}[scale=0.75,baseline=-0.5ex]
+\fill[gray!30] (0,0) -- (0,0.8) arc (90:270:0.8cm) -- cycle;
+\draw[thick] (0,0) circle (0.8cm);
+\foreach \angle in {90,150,210,270,330,30}
+    \draw[thick] (0,0) -- ++(\angle:0.8cm);
+\end{tikzpicture} & &
+\begin{tikzpicture}[scale=0.75,baseline=-0.5ex]
+\fill[gray!30] (0,0) -- ++(270:0.8cm) arc (270:390:0.8cm) -- cycle;
+\draw[thick] (0,0) circle (0.8cm);
+\foreach \angle in {90,150,210,270,330,30}
+    \draw[thick] (0,0) -- ++(\angle:0.8cm);
+\end{tikzpicture} & &
+\begin{tikzpicture}[scale=0.75,baseline=-0.5ex]
+\fill[gray!30] (0,0) -- (0,0.8) arc (90:390:0.8cm) -- cycle;
+\draw[thick] (0,0) circle (0.8cm);
+\foreach \angle in {90,150,210,270,330,30}
+    \draw[thick] (0,0) -- ++(\angle:0.8cm);
+\end{tikzpicture} \\[3.5ex]
+$\frac{1}{2}$ & $+$ & $\displaystyle\frac{1}{3}$ & $=$ & $\displaystyle\frac{3}{6}$ & $+$ & $\displaystyle\frac{2}{6}$ & $=$ & $\displaystyle\frac{5}{6}$ \\[2ex]
+$\displaystyle\frac{1}{\fcolorbox{red}{white}{2}}$ & $+$ & $\displaystyle\frac{1}{\fcolorbox{blue}{white}{3}}$ & $=$ & $\displaystyle\frac{1\times\fcolorbox{blue}{white}{3}}{\fcolorbox{red}{white}{2}\times\fcolorbox{blue}{white}{3}}$ & $+$ & $\displaystyle\frac{1\times\fcolorbox{red}{white}{2}}{\fcolorbox{blue}{white}{3}\times\fcolorbox{red}{white}{2}}$ & $=$ & $\displaystyle\frac{5}{\boxed{6}}$
+\end{tabular}
+\end{center}
+\end{itemize}
+
+
+\bibliographystyle{ametsocV6}
+\bibliography{references}
+
+\end{document}
