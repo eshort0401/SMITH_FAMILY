@@ -1,0 +1,14 @@
+# Ignore everything
+*
+
+# But track .tex and .pdf files
+!*.tex
+!*.pdf
+!*.gitignore
+
+# Allow directories to be traversed
+!*/
+
+# Ignore specific folders
+resources/
+worksheets/learning_strategies/
