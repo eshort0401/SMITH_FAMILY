@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{eqlist}
+\usepackage{uri}
+\urisetup{doipre={https://doi.org/}}
+\usepackage{natbib}
+\usepackage{siunitx}
+\usepackage{pythonhighlight}
+\usepackage{comment}
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{tasks}
+\usepackage{xcolor}
+\usepackage{oubraces}
+\usepackage[inline]{enumitem}
+\usepackage{titling}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage[font={small}, labelfont=bf]{caption}
+\captionsetup{width=.7\textwidth, font=small}
+\usepackage{hyperref}
+\usepackage{forest}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+    % hidelinks=true,
+    linkcolor=black,
+    citecolor=black,
+}
+\usetikzlibrary{positioning} 
+% set the float page fraction
+\renewcommand{\floatpagefraction}{.8}
+
+% Initialize line spacing to 1.5
+\linespread{1.5}
+
+% Define math operators
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\Ei}{Ei}
+\DeclareMathOperator{\E1}{E_1}
+\DeclareMathOperator{\atan2}{atan2}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\gcf}{gcf}
+
+% Convenience commands for colored boxes
+\newcommand{\rbox}[1]{\fcolorbox{red}{white}{#1}}
+\newcommand{\bbox}[1]{\fcolorbox{blue}{white}{#1}}
+
+% Convenience command for hidden boxed content
+\newcommand{\hide}[1]{\boxed{\phantom{#1}}}
+
+% Simple exercises environment using basic enumerate
+\newcounter{exercisenum}
+\newenvironment{exercises}{%
+  \begin{tcolorbox}[colback=white,colframe=black,arc=0pt,breakable]
+%   \noindent\textbf{Exercises}\par
+  \begin{enumerate}[label=\arabic*),leftmargin=1cm,resume=exercises]
+  \setcounter{enumi}{\value{exercisenum}}
+}{%
+  \setcounter{exercisenum}{\value{enumi}}
+  \end{enumerate}
+  \end{tcolorbox}
+}
+
+% Setup footer for first page only
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  \fancyfoot[L]{\small FRACTIONS}
+  \fancyfoot[R]{\small \quad Ewan Short \quad \today}
+  \fancyfoot[C]{\small\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\begin{document}
+
+\thispagestyle{firstpage}
+
+asdf
+
+\bibliographystyle{ametsocV6}
+\bibliography{references}
+
+\end{document}
