@@ -2,51 +2,18 @@
 
 \usepackage[margin=3cm]{geometry}
 \usepackage{amsmath, amssymb, amsthm}
-\usepackage{url}
-\usepackage{graphicx}
-\usepackage{eqlist}
-\usepackage{uri}
-\urisetup{doipre={https://doi.org/}}
-\usepackage{natbib}
 \usepackage{siunitx}
-\usepackage{pythonhighlight}
-\usepackage{comment}
-\usepackage{caption}
-\usepackage{tabularx}
 \usepackage{tikz}
-\usepackage{tasks}
-\usepackage{oubraces}
+\usetikzlibrary{positioning}
 \usepackage[inline]{enumitem}
-\usepackage{titling}
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable}
-\usepackage{needspace}
 \usepackage{fancyhdr}
-\usepackage[font={small}, labelfont=bf]{caption}
-\captionsetup{width=.7\textwidth, font=small}
-\usepackage{hyperref}
-\usepackage{forest}
-\hypersetup{
-    colorlinks=true,
-    urlcolor=blue,
-    % hidelinks=true,
-    linkcolor=black,
-    citecolor=black,
-}
-\usetikzlibrary{positioning} 
-% set the float page fraction
-\renewcommand{\floatpagefraction}{.8}
 
 % Initialize line spacing to 1.5
 \linespread{1.5}
 
-% Define \sgn function
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\real}{Re}
-\DeclareMathOperator{\imag}{Im}
-\DeclareMathOperator{\Ei}{Ei}
-\DeclareMathOperator{\E1}{E_1}
-\DeclareMathOperator{\atan2}{atan2}
+% Define operators
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\gcf}{gcf}
 
@@ -77,7 +44,7 @@
 
 \thispagestyle{firstpage}
 
-\section{Secret Level (Optional!)}
+\section{More Factors (Optional!)}
 
 \begin{itemize}
 \item
@@ -105,7 +72,7 @@ $$
 $$
 Order doesn't matter here, $\gcf(a,b) = \gcf(b,a)$.
 \item
-We can find the greatest common factor of two numbers using prime decomposition, just like with the least common multiple. But this time if a factor is in both original numbers and the indices are different, we use the \underbar{smaller} index. For example,
+Similar to finding the least common multiple, we can find the greatest common factor of two numbers using prime decomposition. This time we only keep the factors in both numbers, and if the indices are different, we use the \underbar{smaller} index. For example,
 $$
 \begin{array}{lll}
 12 = 3^1\times 2^2, & 18 = 2^1\times 3^2, &\text{so } \gcf(12,18)=2^1\times 3^1 = 6. \\
@@ -123,14 +90,11 @@ You're tiling a tiny $\SI{12}{\centi\meter} \times \SI{8}{\centi\meter}$ section
 \end{tikzpicture}
 \end{center}
 \item
-For any positive whole numbers $a$ and $b$,
+Explain why 
 $$
 \lcm(a,b)\times\gcf(a,b) = a\times b.
 $$
-Test this relationship with $a=12$ and $b=18$. Can you explain why the relationship is always true?
+for all positive whole numbers $a$ and $b$. 
 \end{exercises}
-
-\bibliographystyle{ametsocV6}
-\bibliography{references}
 
 \end{document}

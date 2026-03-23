@@ -1,53 +1,15 @@
 \documentclass[12pt]{article}
-
 \usepackage[margin=3cm]{geometry}
 \usepackage{amsmath, amssymb, amsthm}
-\usepackage{url}
-\usepackage{graphicx}
-\usepackage{eqlist}
-\usepackage{uri}
-\urisetup{doipre={https://doi.org/}}
-\usepackage{natbib}
-\usepackage{siunitx}
-\usepackage{pythonhighlight}
-\usepackage{comment}
-\usepackage{caption}
-\usepackage{tabularx}
-\usepackage{tikz}
 \usepackage{tasks}
-\usepackage{oubraces}
 \usepackage[inline]{enumitem}
-\usepackage{titling}
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable}
-\usepackage{needspace}
 \usepackage{fancyhdr}
-\usepackage[font={small}, labelfont=bf]{caption}
-\captionsetup{width=.7\textwidth, font=small}
-\usepackage{hyperref}
-\usepackage{forest}
-\hypersetup{
-    colorlinks=true,
-    urlcolor=blue,
-    % hidelinks=true,
-    linkcolor=black,
-    citecolor=black,
-}
-\usetikzlibrary{positioning} 
-% set the float page fraction
-\renewcommand{\floatpagefraction}{.8}
+
 
 % Initialize line spacing to 1.5
 \linespread{1.5}
-
-% Define \sgn function
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\real}{Re}
-\DeclareMathOperator{\imag}{Im}
-\DeclareMathOperator{\Ei}{Ei}
-\DeclareMathOperator{\E1}{E_1}
-\DeclareMathOperator{\atan2}{atan2}
-\DeclareMathOperator{\lcm}{lcm}
 
 % Simple exercises environment using basic enumerate
 \newcounter{exercisenum}
@@ -61,11 +23,6 @@
   \end{enumerate}
   \end{tcolorbox}
 }
-
-% Reset at each section
-% \makeatletter
-% \@addtoreset{exercisenum}{section}
-% \makeatother
 
 % Setup footer for first page only
 \fancypagestyle{firstpage}{
@@ -146,8 +103,5 @@ Find the least common multiples of the following numbers.
 \task 3 and 7.
 \end{tasks}
 \end{exercises}
-
-\bibliographystyle{ametsocV6}
-\bibliography{references}
 
 \end{document}
