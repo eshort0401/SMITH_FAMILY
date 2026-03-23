@@ -1,3 +1,3 @@
 # The Smith Family
 
-Repository to version control learning material for The Smith Family learning centers.
+Worksheets and similar content for The Smith Family's learning centers.
