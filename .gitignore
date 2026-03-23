@@ -5,6 +5,7 @@
 !*.tex
 !*.pdf
 !*.gitignore
+!*.md
 
 # Allow directories to be traversed
 !*/
