@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{xcolor}
+\usepackage[inline]{enumitem}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{fancyhdr}
+\usepackage{url}
+
+% Initialize line spacing to 1.5
+\linespread{1.5}
+
+% Convenience commands for colored boxes
+\newcommand{\rbox}[1]{\fcolorbox{red}{white}{#1}}
+\newcommand{\bbox}[1]{\fcolorbox{blue}{white}{#1}}
+
+% Convenience command for hidden boxed content
+\newcommand{\hide}[1]{\boxed{\phantom{#1}}}
+
+% Simple exercises environment using basic enumerate
+\newcounter{exercisenum}
+\newenvironment{exercises}{%
+  \begin{tcolorbox}[colback=white,colframe=black,arc=0pt,breakable]
+%   \noindent\textbf{Exercises}\par
+  \begin{enumerate}[label=\arabic*),leftmargin=1cm,resume=exercises]
+  \setcounter{enumi}{\value{exercisenum}}
+}{%
+  \setcounter{exercisenum}{\value{enumi}}
+  \end{enumerate}
+  \end{tcolorbox}
+}
+
+% Setup footer for first page only
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  \fancyfoot[L]{\small LYRICS}
+  \fancyfoot[R]{\small \quad Ewan Short \quad \today}
+  \fancyfoot[C]{\small\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\begin{document}
+
+\thispagestyle{firstpage}
+
+% \section{Fractions}
+\begin{itemize}
+\item
+Song lyrics are usually written how they are sung, without worrying about spelling or punctuation. For example, here is part of Olivia Foai'i's song \textit{Party for 1}.
+\begin{quotation}
+\noindent I'll be messy bunnin' \\
+While your party's pumpin' \\
+I'm in a t-shirt dancin' on my own \\
+Lookin' like risky business \\
+Cookin' in the kitchen \\
+Don't try to reach me \\
+Can't come to the phone
+\end{quotation}
+\end{itemize}
+
+\begin{exercises}
+\item    
+Write out some of the lyrics to a song you like. You can find most lyrics on \url{genius.com}. Please choose lyrics that are G or PG rated! \label{Ex:lyrics} If you don't like music, do a TV theme-song, hymn, nursery rhyme etc.~instead.
+\item
+Why did you choose these lyrics? Are they important to you or relatable in some way? Do they go well with the music?
+\end{exercises}
+
+\begin{itemize}
+\item
+Lyrics are written in lines to emphasize the flow of the music. To see the difference, let's rewrite \textit{Party for 1} as a paragraph. We'll also put the ``proper'' spelling and punctuation back in. 
+\begin{quotation}
+\noindent I'll be messy bunning while your party's pumping. I'm in a t-shirt, dancing on my own. Looking like risky business, cooking in the kitchen. Don't try to reach me, I can't come to the phone.
+\end{quotation}
+\item
+Olivia Foa'i invented a new word ``bunning" in \textit{Party for 1}. Notice messy is an \underbar{adjective} and bun is a \underbar{noun}, but adding the ``ing'' turns ``bunning" into a \underbar{verb}.
+\end{itemize}
+
+\begin{exercises}
+\item
+Rewrite your lyrics from \ref{Ex:lyrics} as a paragraph using ``proper'' spelling and punctuation.
+\item
+Why do you think singers invent new words in their music? What mental image does ``messy bunnin" evoke? Did the artist invent any new words in your lyrics from \ref{Ex:lyrics}?
+\end{exercises}
+
+\begin{itemize}
+\item
+A good way to learn creative writing is to imitate the style of people you respect. Here are some lyrics I've written in the style of Olivia Foai'i's \textit{Party for 1}.
+\begin{quotation}
+\noindent I'll be gluin' Warhammer \\
+While you're rockin' bangers \\
+I'm in my PJs paintin' river trolls \\
+Lookin' like agin' Chewbacca \\
+I'll watch A New Hope after \\
+Don't try to text me \\
+While yellow text scrolls
+\end{quotation}
+\end{itemize}
+
+\begin{exercises}
+\item
+Can you write your own lyrics in the style of the song you chose in \ref{Ex:lyrics}?
+\end{exercises}
+
+\end{document}
